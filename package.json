@@ -18,7 +18,7 @@
 		"levelidb":"",
 		"domready":"",
 		"mu2":"",
-		"cookies", "",
+		"cookies": "",
 		"router":""
   },
   "scripts": {
