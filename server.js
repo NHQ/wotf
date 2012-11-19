@@ -51,7 +51,7 @@ route.post('/wotf/auth', function(req, res){
 		}
 		else {
 			cookies.set('admin', 'false');
-			res.setHeader('Location', '/wotf/auth');
+			res.setHeader('Location', './auth');
 			res.writeHead(302);
 			res.end()
 		}
@@ -104,7 +104,7 @@ route.get('/wotf/public/{file}', function(req, res){
 	filed('public/' + req.params.file).pipe(res)
 });
 
-route.post('/save', function(req, res){
+route.post('/wotf/save', function(req, res){
 	req.on('data', function(data){
 		data = qs.parse(data.toString('utf8'));
 		data.id = data.id || uuid();
@@ -133,7 +133,7 @@ function server(req, res){
   var admin = cookies.get('admin');
 
 	if(!admin) {
-		res.setHeader('Location', '/wotf/auth');
+		res.setHeader('Location', './auth');
 		res.writeHead(302);
 		res.end()
 	}
