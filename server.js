@@ -133,7 +133,7 @@ function server(req, res){
   var admin = cookies.get('admin');
 
 	if(!admin) {
-		res.setHeader('Location', './auth');
+		res.setHeader('Location', './wotf/auth');
 		res.writeHead(302);
 		res.end()
 	}
