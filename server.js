@@ -35,30 +35,30 @@ function roladex(cb){
 	  })
 };
 
-route.get('/auth', function(req, res){
+route.get('/wotf/auth', function(req, res){
 	filed('public/auth.html').pipe(res)
 });
 
-route.post('/auth', function(req, res){
+route.post('/wotf/auth', function(req, res){
 	req.on('data', function(data){
 		var cookies = new Cookies( req, res );
 		var pw = qs.parse(data.toString('utf8')).password;
 		if(pw === pass){
 			cookies.set('admin', 'true');
-			res.setHeader('Location', '/');
+			res.setHeader('Location', '/wotf');
 			res.writeHead(302);
 			res.end()
 		}
 		else {
 			cookies.set('admin', 'false');
-			res.setHeader('Location', '/auth');
+			res.setHeader('Location', '/wotf/auth');
 			res.writeHead(302);
 			res.end()
 		}
 	})
 });
 
-route.get('/roladex', function(req, res){
+route.get('/wotf/roladex', function(req, res){
 	roladex(function(err, str){
 		if(err) console.error(err);
 		else{
@@ -70,7 +70,7 @@ route.get('/roladex', function(req, res){
 	})
 });
 
-route.get('/', function(req, res){
+route.get('/wotf', function(req, res){
 	roladex(function(err, str){
 		if(err) console.error(err);
 		else{
@@ -83,7 +83,7 @@ route.get('/', function(req, res){
 	})
 });
 
-route.get('/person/{id}', function(req, res){
+route.get('/wotf/person/{id}', function(req, res){
 	db.get(req.params.id, function(err, data){
 		console.log(data)
 		if(err) {
@@ -100,7 +100,7 @@ route.get('/person/{id}', function(req, res){
 	})
 });
 
-route.get('/public/{file}', function(req, res){
+route.get('/wotf/public/{file}', function(req, res){
 	filed('public/' + req.params.file).pipe(res)
 });
 
@@ -119,10 +119,10 @@ route.post('/save', function(req, res){
 	})
 });
 
-route.post('/delete/{id}', function(req, res){
+route.post('/wotf/delete/{id}', function(req, res){
 	db.del(req.params.id, function(err){
 		if(err) console.error(err);
-		res.setHeader('Location', '/');
+		res.setHeader('Location', '/wotf');
 		res.writeHead(301);
 		res.end()
 	})
@@ -133,7 +133,7 @@ function server(req, res){
   var admin = cookies.get('admin');
 
 	if(!admin) {
-		res.setHeader('Location', '/auth');
+		res.setHeader('Location', '/wotf/auth');
 		res.writeHead(302);
 		res.end()
 	}
