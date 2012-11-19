@@ -1,0 +1,31 @@
+{
+  "name": "wotf",
+  "version": "0.0.0",
+  "description": "app 4 angie",
+  "main": "server.js",
+  "dependencies": {
+    "filed": "~0.0.7",
+    "levelidb": "~0.1.6",
+    "domready": "~0.2.11",
+    "levelup": "~0.3.0",
+    "mu2": "~0.5.17",
+    "node-uuid": "~1.4.0",
+    "router": "~0.6.2"
+  },
+  "devDependencies": {
+		"node-uuid":"",
+		"levelup":"",
+		"levelidb":"",
+		"domready":"",
+		"mu2":"",
+		"cookies", "",
+		"router":""
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD"
+}

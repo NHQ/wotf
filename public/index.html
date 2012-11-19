@@ -1,0 +1,61 @@
+<! doctype html>
+<html>
+  <head>
+  	<title>WOMEN OF THE FUTURE</title>
+		<link rel="stylesheet" href="/public/style.css" />
+  </head>
+  <body>
+	
+		<div class="list">
+			<fieldset>
+				<legend>ROLLADEX</legend>
+						<a href="/" class="{{homeshow}}">HOME</a><br />
+						{{& list}}
+			</fieldset>
+		</div>
+		<form class="search">
+			<fieldset>
+				<legend>SEARCH</legend>
+				<input type="seach" id="seach" name="search"></input>
+			</fieldset>
+
+		</form>
+  	<form action="/save" method="post" id="entry">
+  		<fieldset>
+  			<legend>WOTF</legend>
+				<button type="submit" id="submit" form="entry">SAVE</button>
+				<label for="name">Name:
+					<input type="text" name="name" id="name" value="{{name}}"></input>				
+				</label>
+				<label for="email">EMAIL:
+					<input type="email" name="email" id="email" value="{{email}}"></input>				
+				</label>
+				<label for="twitter">Twitter:
+					<input type="text" name="twitter" id="twitter" value="{{twitter}}"></input>				
+				</label>
+				<label for="location">Location:
+					<input type="text" name="location" id="location" value="{{location}}"></input>				
+				</label>
+				<label for="connexion">Connexion:
+					<input type="text" name="connexion" id="connexion" value="{{connexion}}"></input>				
+				</label>
+				<label for="description">Description:</label>
+					<textarea name="description" id="description">{{description}}</textarea>				
+				<label for="connexion">age:
+					<input type="text" name="age" id="age" value="{{age}}"></input>				
+				</label>
+				<label for="link">Links:
+					<textarea name="links" id="links">{{links}}</textarea>				
+				</label>
+				<label for="tags">Tags (comma separated):
+					<input type="text" name="tags" id="tags" value="{{tags}}"></input>				
+				</label>
+				<input type="hidden" name="id" value="{{id}}"></input>
+				<button type="submit" id="submit" form="delete">DELETE</button>
+
+  		</fieldset>
+  	</form>
+		<form action="/delete/{{id}}" method="post" id="delete">
+		</form>
+  </body>
+</html>
